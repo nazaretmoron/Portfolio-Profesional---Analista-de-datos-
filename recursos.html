@@ -1,0 +1,696 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos | Nazaret Morón - Analista Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Work+Sans:wght@300;400;500;600;700;800&family=Crimson+Pro:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --burdeos: #68192E;
+            --burdeos-dark: #3D0E1A;
+            --rosa-neon: #FF1493;
+            --rosa-intenso: #C9184A;
+            --oro: #FFD700;
+            --oro-rosa: #E0AC9C;
+            --champagne: #F7E7CE;
+            --fondo-crema: #F5F1E8;
+            --blanco: #FDFCFA;
+            --negro: #2B2B2B;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--fondo-crema);
+            color: var(--negro);
+            overflow-x: hidden;
+        }
+        
+        /* NAVIGATION - Idéntico a index.html */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(253, 252, 250, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+        
+        .logo-initial {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--burdeos), var(--rosa-neon));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 22px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--negro);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 45px;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--negro);
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+            letter-spacing: 0.3px;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--rosa-neon);
+        }
+        
+        .nav-cta {
+            padding: 13px 30px;
+            background: var(--burdeos);
+            color: white !important;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        
+        .nav-cta:hover {
+            background: var(--rosa-neon);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.3);
+        }
+        
+        /* HERO RECURSOS */
+        .recursos-hero {
+            padding: 180px 60px 100px;
+            background: linear-gradient(135deg, var(--champagne) 0%, var(--blanco) 35%, #FFE5F0 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.08;
+            filter: blur(80px);
+        }
+        
+        .blob-1 {
+            width: 450px;
+            height: 450px;
+            background: var(--rosa-neon);
+            top: -120px;
+            right: -80px;
+        }
+        
+        .blob-2 {
+            width: 350px;
+            height: 350px;
+            background: var(--oro);
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        .recursos-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-label {
+            display: inline-block;
+            padding: 11px 26px;
+            background: white;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--burdeos);
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            border: 2px solid var(--champagne);
+            letter-spacing: 0.5px;
+        }
+        
+        .recursos-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--burdeos);
+            margin-bottom: 25px;
+            line-height: 1.1;
+        }
+        
+        .recursos-hero h1 .accent {
+            color: var(--rosa-neon);
+            font-style: italic;
+        }
+        
+        .page-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--rosa-neon);
+            margin: 30px auto;
+        }
+        
+        .recursos-hero p {
+            font-size: 19px;
+            line-height: 1.75;
+            color: var(--negro);
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+        
+        /* FILTROS */
+        .filters-section {
+            background: var(--blanco);
+            padding: 40px 60px;
+            border-top: 1px solid var(--champagne);
+            border-bottom: 1px solid var(--champagne);
+            position: sticky;
+            top: 96px;
+            z-index: 100;
+        }
+        
+        .filters-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            border: 2px solid var(--burdeos);
+            background: white;
+            color: var(--burdeos);
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.3px;
+        }
+        
+        .filter-btn:hover {
+            background: var(--fondo-crema);
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            background: var(--burdeos);
+            color: white;
+            box-shadow: 0 6px 20px rgba(104, 25, 46, 0.25);
+        }
+        
+        /* RECURSOS GRID */
+        .recursos-section {
+            padding: 80px 60px;
+            background: var(--fondo-crema);
+        }
+        
+        .recursos-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .recursos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.06);
+            transition: all 0.4s;
+            border: 1px solid rgba(104, 25, 46, 0.08);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.1);
+        }
+        
+        .resource-card.hidden {
+            display: none;
+        }
+        
+        .resource-header {
+            padding: 35px;
+            background: linear-gradient(135deg, var(--burdeos) 0%, var(--rosa-neon) 100%);
+            position: relative;
+            min-height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .resource-header.guias {
+            background: linear-gradient(135deg, var(--burdeos) 0%, var(--rosa-intenso) 100%);
+        }
+        
+        .resource-header.checklists {
+            background: linear-gradient(135deg, var(--rosa-neon) 0%, var(--oro) 100%);
+        }
+        
+        .resource-header.dashboards {
+            background: linear-gradient(135deg, var(--oro) 0%, var(--oro-rosa) 100%);
+        }
+        
+        .resource-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            align-self: flex-start;
+        }
+        
+        .resource-badge.guias {
+            color: var(--burdeos);
+        }
+        
+        .resource-badge.checklists {
+            color: var(--rosa-neon);
+        }
+        
+        .resource-badge.dashboards {
+            color: var(--oro);
+        }
+        
+        .resource-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.25;
+            margin-top: 20px;
+        }
+        
+        .resource-body {
+            padding: 35px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-description {
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--negro);
+            margin-bottom: 25px;
+            flex: 1;
+        }
+        
+        .resource-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .tag {
+            padding: 8px 16px;
+            background: var(--fondo-crema);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--burdeos);
+            font-weight: 700;
+            border: 1.5px solid var(--champagne);
+        }
+        
+        .resource-actions {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .btn-primary,
+        .btn-secondary {
+            flex: 1;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 14px;
+            text-align: center;
+            letter-spacing: 0.3px;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--rosa-neon);
+            color: white;
+            border: 2px solid var(--rosa-neon);
+        }
+        
+        .btn-primary:hover {
+            background: var(--rosa-intenso);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--burdeos);
+            border: 2px solid var(--burdeos);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--burdeos);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* COMING SOON CARD */
+        .coming-soon {
+            opacity: 0.6;
+        }
+        
+        .coming-soon .resource-header::after {
+            content: 'Próximamente';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--burdeos);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        /* FOOTER - Idéntico a index.html */
+        footer {
+            padding: 50px 60px;
+            background: var(--burdeos-dark);
+            text-align: center;
+        }
+        
+        footer p {
+            color: var(--champagne);
+            opacity: 0.75;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 1200px) {
+            .recursos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container,
+            .recursos-hero,
+            .filters-section,
+            .recursos-section {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            
+            .nav-links li:not(:last-child) {
+                display: none;
+            }
+            
+            .recursos-hero h1 {
+                font-size: 42px;
+            }
+            
+            .recursos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filters-container {
+                gap: 12px;
+            }
+            
+            .filter-btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-initial">N</div>
+                <span class="logo-text">Nazaret</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#sobre-mi">Sobre Mí</a></li>
+                <li><a href="index.html#proyectos">Proyectos</a></li>
+                <li><a href="recursos.html" class="active">Recursos</a></li>
+                <li><a href="index.html#contacto" class="nav-cta">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO RECURSOS -->
+    <section class="recursos-hero">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        
+        <div class="recursos-hero-content">
+            <div class="hero-label">Recursos Gratuitos</div>
+            <h1>
+                Guías, Checklists y<br>
+                <span class="accent">Herramientas</span>
+            </h1>
+            <div class="page-divider"></div>
+            <p>
+                Recursos educativos para analistas digitales. Guías paso a paso, checklists de validación y dashboards descargables para implementar mejores prácticas en analítica web.
+            </p>
+        </div>
+    </section>
+
+    <!-- FILTROS -->
+    <section class="filters-section">
+        <div class="filters-container">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="guias">Guías</button>
+            <button class="filter-btn" data-filter="checklists">Checklists</button>
+            <button class="filter-btn" data-filter="dashboards">Dashboards</button>
+        </div>
+    </section>
+
+    <!-- RECURSOS GRID -->
+    <section class="recursos-section">
+        <div class="recursos-container">
+            <div class="recursos-grid" id="recursosGrid">
+                
+                <!-- Recurso 1: Checklist Medición Web -->
+                <div class="resource-card" data-category="checklists">
+                    <div class="resource-header checklists">
+                        <span class="resource-badge checklists">CHECKLIST</span>
+                        <h3 class="resource-title">Medición Web Completa</h3>
+                    </div>
+                    <div class="resource-body">
+                        <p class="resource-description">
+                            20 puntos esenciales para validar tu implementación de GA4. Incluye sección completa sobre privacidad, RGPD y consentimiento de cookies.
+                        </p>
+                        <div class="resource-tags">
+                            <span class="tag">GA4</span>
+                            <span class="tag">GTM</span>
+                            <span class="tag">RGPD</span>
+                            <span class="tag">Cookies</span>
+                        </div>
+                        <div class="resource-actions">
+                            <a href="checklists/medicion-web.html" class="btn-primary">Ver Online</a>
+                            <a href="checklists/medicion-web.html" class="btn-secondary" onclick="window.print(); return false;">Descargar PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recurso 2: Guía GA4 -->
+                <div class="resource-card" data-category="guias">
+                    <div class="resource-header guias">
+                        <span class="resource-badge guias">GUÍA</span>
+                        <h3 class="resource-title">Implementar GA4 en GitHub Pages</h3>
+                    </div>
+                    <div class="resource-body">
+                        <p class="resource-description">
+                            Guía paso a paso para configurar Google Analytics 4 en tu portfolio estático desde cero. Incluye troubleshooting y configuración de eventos.
+                        </p>
+                        <div class="resource-tags">
+                            <span class="tag">GA4</span>
+                            <span class="tag">GitHub Pages</span>
+                            <span class="tag">Principiante</span>
+                        </div>
+                        <div class="resource-actions">
+                            <a href="guias/ga4-github-pages.html" class="btn-primary">Ver Guía</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recurso 3: Guía GTM -->
+                <div class="resource-card" data-category="guias">
+                    <div class="resource-header guias">
+                        <span class="resource-badge guias">GUÍA</span>
+                        <h3 class="resource-title">Configurar GTM en Sitio Estático</h3>
+                    </div>
+                    <div class="resource-body">
+                        <p class="resource-description">
+                            Aprende a implementar Google Tag Manager correctamente, configurar tags esenciales y seguir las mejores prácticas para sitios estáticos.
+                        </p>
+                        <div class="resource-tags">
+                            <span class="tag">GTM</span>
+                            <span class="tag">Tags</span>
+                            <span class="tag">Intermedio</span>
+                        </div>
+                        <div class="resource-actions">
+                            <a href="guias/gtm-sitio-estatico.html" class="btn-primary">Ver Guía</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recurso 4: Dashboard Turismo (Coming Soon) -->
+                <div class="resource-card coming-soon" data-category="dashboards">
+                    <div class="resource-header dashboards">
+                        <span class="resource-badge dashboards">DASHBOARD</span>
+                        <h3 class="resource-title">Dashboard GA4 para Turismo</h3>
+                    </div>
+                    <div class="resource-body">
+                        <p class="resource-description">
+                            Template de Looker Studio optimizado para analizar el rendimiento de sitios web turísticos. Incluye métricas clave y visualizaciones personalizadas.
+                        </p>
+                        <div class="resource-tags">
+                            <span class="tag">Looker Studio</span>
+                            <span class="tag">Template</span>
+                            <span class="tag">Turismo</span>
+                        </div>
+                        <div class="resource-actions">
+                            <button class="btn-primary" disabled style="opacity: 0.5; cursor: not-allowed;">Próximamente</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Nazaret Morón · Analista Digital · Granada, España · Hecho con datos y ✨</p>
+    </footer>
+
+    <script>
+        // FILTROS FUNCIONALES
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const resourceCards = document.querySelectorAll('.resource-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Actualizar botón activo
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                // Filtrar cards
+                resourceCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    
+                    if (filterValue === 'all') {
+                        card.classList.remove('hidden');
+                    } else if (category === filterValue) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.resource-card').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = `all 0.7s ease-out ${index * 0.12}s`;
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
